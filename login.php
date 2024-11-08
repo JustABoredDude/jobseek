@@ -41,7 +41,8 @@
                             </div>
                           </form> 
                           
-                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Sign Up</a>
+                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Sign Up</a><br>
+                          <a href="<?php echo web_root; ?>admin/login.php" class="text-center">I'm an Admin</a>
 
                         </div>
                         <!-- /.login-box-body -->
@@ -61,7 +62,7 @@
                   }
                   });
                   </script>
-                  
+
                 <!-- </form> -->
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

@@ -40,7 +40,7 @@ require_once("../include/initialize.php");
   </div> -->
   <!-- /.login-logo -->
   <div class="login-box-body" style="min-height: 400px;">
-    <h1 class="login-box-msg">Login to ERIS</h1>
+    <h1 class="login-box-msg">Login to Diabless</h1>
     <hr/>
     <p><?php check_message(); ?></p>
 

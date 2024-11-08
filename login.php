@@ -49,9 +49,19 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Close</button> <button class="btn btn-primary"
-                    name="btnlogin" id="btnlogin"  >Login</button>
+                    <button class="btn btn-default" data-dismiss="modal">Close</button> 
+                    <button class="btn btn-primary" name="btnlogin" id="btnlogin">Login</button>
                   </div>
+
+                  <script>
+                  document.addEventListener("keydown", function(event) {
+                  if (event.key === "Enter") {
+                  event.preventDefault(); 
+                  document.getElementById("btnlogin").click();
+                  }
+                  });
+                  </script>
+                  
                 <!-- </form> -->
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

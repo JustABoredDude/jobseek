@@ -3,7 +3,6 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 28, 2018 at 12:35 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -16,7 +15,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `erisdb`
+-- Database: `diablessdb`
 --
 
 -- --------------------------------------------------------

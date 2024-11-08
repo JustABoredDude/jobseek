@@ -78,7 +78,7 @@
 										<img class="img-responsive" src="img/team4.jpg" alt="">
 										<!-- Name -->
 										<h4>Salic, Jovince </h4>
-										<span class="deg">Manager</span> 
+										<span class="deg">Programmer</span> 
 									</div>
 								</div>
 							</div>

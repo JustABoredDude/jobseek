@@ -5871,14 +5871,6 @@ S2.define('jquery.select2',[
   return Select2;
 });
 
-/*!
- * jQuery Mousewheel 3.1.12
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- */
-
 (function (factory) {
     if ( typeof S2.define === 'function' && S2.define.amd ) {
         // AMD. Register as an anonymous module.

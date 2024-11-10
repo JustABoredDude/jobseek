@@ -12,7 +12,7 @@
 					<div class="col-md-8">
 					<input name="JOBID" type="hidden" value="<?php echo isset($_GET['job']) ? $_GET['job'] : ''; ?>">
 					   <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
-					      "Firstname" type="text" value=""  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+					      "Firstname" type="text" value="" required onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 					<div class="col-md-8">
 					  <input name="deptid" type="hidden" value="">
 					  <input  class="form-control input-sm" id="LNAME" name="LNAME" placeholder=
-					      "Lastname"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+					      "Lastname" required   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 					  </div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 					<div class="col-md-8">
 					  <input name="deptid" type="hidden" value="">
 					  <input  class="form-control input-sm" id="MNAME" name="MNAME" placeholder=
-					      "Middle Name"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+					      "Middle Name" required   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 					   <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
 					      "Description" type="text" value=""> -->
 					</div>
@@ -165,7 +165,7 @@
 			 <div class="form-group">
 			  <div class="col-md-8">
 			    <label class="col-md-4 control-label" for=
-			    "CIVILSTATUS">Civil Status:</label>
+			    "CIVILSTATUS" required>Civil Status:</label>
 
 			    <div class="col-md-8">
 			      <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
@@ -184,7 +184,7 @@
 			    <label class="col-md-4 control-label" for=
 			    "EMAILADDRESS">Email Address:</label> 
 			    <div class="col-md-8">
-			       <input type="Email" class="form-control input-sm" id="EMAILADDRESS" name="EMAILADDRESS" placeholder="Email Address"   autocomplete="false"/> 
+			       <input type="Email" class="form-control input-sm" id="EMAILADDRESS" name="EMAILADDRESS" placeholder="Email Address" required  autocomplete="false"/> 
 			    </div>
 			  </div>
 			</div>  
@@ -196,7 +196,7 @@
 			    <div class="col-md-8">
 			      <input name="deptid" type="hidden" value="">
 			      <input  class="form-control input-sm" id="USERNAME" name="USERNAME" placeholder=
-			          "Username"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+			          "Username" required   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 			      </div>
 			  </div>
 			</div>
@@ -209,7 +209,7 @@
 			    <div class="col-md-8">
 			      <input name="deptid" type="hidden" value="">
 			      <input  class="form-control input-sm" id="PASS" name="PASS" placeholder=
-			          "Password" type="password"   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+			          "Password" type="password" required   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 			       <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
 			          "Description" type="text" value=""> -->
 			    </div>
@@ -223,7 +223,7 @@
 			    <div class="col-md-8">
 			      <input name="deptid" type="hidden" value="">
 			      <input  class="form-control input-sm" id="DEGREE" name="DEGREE" placeholder=
-			          "Educational Attainment"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+			          "Educational Attainment" required   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
 			      </div>
 			  </div>
 			</div>  
@@ -233,7 +233,7 @@
 			      ""></label>  
 
 			      <div class="col-md-8"> 
-			      		<label><input type="checkbox"> By Sign up you are agree with our <a href="#">terms and condition</a></label>
+			      		<label><input type="checkbox" id="termsCheckbox" required> By Sign up you are agree with our <a href="#">terms and condition</a></label>
 			     </div>
 			    </div>
 			</div>    
@@ -247,7 +247,9 @@
 			     
 			     </div>
 			    </div>
-			</div>    
+			</div>
+			
+
 		</form>
 	</div>
 </section>

@@ -32,7 +32,7 @@ switch ($view) {
 		$content='success.php';		
 		break;
 	case 'register' :
-        $title="Register New Member";	
+        $title="Register";	
 		$content='register.php';		
 		break;
 	case 'Contact' :

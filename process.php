@@ -160,8 +160,8 @@ function doRegister(){
 
 			$age = date_diff(date_create($birthdate),date_create('today'))->y;
 
-			if ($age < 20){
-			message("Invalid age. 20 years old and above is allowed.", "error");
+			if ($age < 18){
+			message("Invalid age. 18 years old and above is allowed.", "error");
 			redirect("index.php?q=register");
 
 			}else{

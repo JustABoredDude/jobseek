@@ -24,17 +24,7 @@ if(!Array.isArray) {
   Array.isArray = function(arg) {
     return Object.prototype.toString.call(arg) === '[object Array]';
   };
-};/**
- * @license wysihtml5x v0.4.15
- * https://github.com/Edicy/wysihtml5
- *
- * Author: Christopher Blum (https://github.com/tiff)
- * Secondary author of extended features: Oliver Pulges (https://github.com/pulges)
- *
- * Copyright (C) 2012 XING AG
- * Licensed under the MIT license (MIT)
- *
- */
+};
 var wysihtml5 = {
   version: "0.4.15",
 
@@ -60,16 +50,7 @@ var wysihtml5 = {
   SPACE_KEY:      32,
   DELETE_KEY:     46
 };
-;/**
- * Rangy, a cross-browser JavaScript range and selection library
- * http://code.google.com/p/rangy/
- *
- * Copyright 2014, Tim Down
- * Licensed under the MIT license.
- * Version: 1.3alpha.20140804
- * Build date: 4 August 2014
- */
-
+;
 (function(factory, global) {
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module.
@@ -3793,20 +3774,7 @@ var wysihtml5 = {
     /*----------------------------------------------------------------------------------------------------------------*/
 
     return api;
-}, this);;/**
- * Selection save and restore module for Rangy.
- * Saves and restores user selections using marker invisible elements in the DOM.
- *
- * Part of Rangy, a cross-browser JavaScript range and selection library
- * http://code.google.com/p/rangy/
- *
- * Depends on Rangy core.
- *
- * Copyright 2014, Tim Down
- * Licensed under the MIT license.
- * Version: 1.3alpha.20140804
- * Build date: 4 August 2014
- */
+}, this);;
 (function(factory, global) {
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module with a dependency on Rangy.
@@ -4042,12 +4010,7 @@ var wysihtml5 = {
         });
     });
     
-}, this);;/*
-	Base.js, version 1.1a
-	Copyright 2006-2010, Dean Edwards
-	License: http://www.opensource.org/licenses/mit-license.php
-*/
-
+}, this);;
 var Base = function() {
 	// dummy
 };

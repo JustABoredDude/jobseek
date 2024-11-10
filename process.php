@@ -213,7 +213,7 @@ function doLogin(){
     $res = $applicant->applicantAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully login!","success");
+       	message("Login successfully!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";

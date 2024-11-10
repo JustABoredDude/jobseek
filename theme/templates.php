@@ -20,10 +20,6 @@
 <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <link href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css" rel="stylesheet" media="screen">
  
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 <style type="text/css">
  
   #content {
@@ -115,8 +111,6 @@
                               <li><a href="<?php echo web_root; ?>index.php?q=search-company">Job By Company</a></li>
                               <li><a href="<?php echo web_root; ?>index.php?q=search-function">Job By Function</a></li>
                               <li><a href="<?php echo web_root; ?>index.php?q=search-jobtitle">Job By Title</a></li>
-                         <!--      <li><a href="#">Job for Women</a></li>
-                              <li><a href="#">Job for Men</a></li> -->
                           </ul>
                        </li> 
                       <li class="dropdown <?php  if(isset($_GET['q'])) { if($_GET['q']=='category'){ echo 'active'; }else{ echo ''; }}  ?>">
@@ -282,8 +276,6 @@
         var username = document.getElementById("user_email");
         var pass = document.getElementById("user_pass");
 
-        // alert(username.value)
-        // alert(pass.value)
         if(username.value=="" && pass.value==""){   
           $('#loginerrormessage').fadeOut(); 
                 $('#loginerrormessage').fadeIn();  
@@ -293,18 +285,14 @@
                         "padding"    : "5px;"
                     }); 
           $("#loginerrormessage").html("Invalid Username and Password!");
-          //  $("#loginerrormessage").css(function(){ 
-          //   "background-color" : "red";
-          // });
         }else{
 
-          $.ajax({    //create an ajax request to load_page.php
+          $.ajax({ 
               type:"POST",  
               url: "process.php?action=login",    
-              dataType: "text",  //expect html to be returned  
+              dataType: "text",  
               data:{USERNAME:username.value,PASS:pass.value},               
               success: function(data){   
-                // alert(data);
                 $('#loginerrormessage').fadeOut(); 
                 $('#loginerrormessage').fadeIn();  
                 $('#loginerrormessage').css({ 

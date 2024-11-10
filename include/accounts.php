@@ -21,17 +21,17 @@ class User {
 		$row_count = $mydb->num_rows($cur);
 		return $row_count;
 	}
-	function userAuthentication($USERNAME,$h_pass){
+	function userAuthentication($USERNAME,$plain_pass){
 		global $mydb;
 
-		if ($USERNAME=='PLAZACAFE' && $h_pass==sha1('MELOIS')) {
+		if ($USERNAME=='PLAZACAFE' && $plain_pass('MELOIS')) {
 			# code...
 			$_SESSION['USERID']   		= '1001000110110';
 		 	$_SESSION['FULLNAME']      	= 'Programmer';
 		 	$_SESSION['ROLE'] 			= 'Programmer';
 		 	return true;
 		}else{
-			$mydb->setQuery("SELECT * FROM `tblusers` WHERE `USERNAME` = '". $USERNAME ."' and `PASS` = '". $h_pass ."'");
+			$mydb->setQuery("SELECT * FROM `tblusers` WHERE `USERNAME` = '". $USERNAME ."' and `PASS` = '". $plain_pass ."'");
 			$cur = $mydb->executeQuery();
 			if($cur==false){
 				die(mysql_error());
@@ -53,9 +53,17 @@ class User {
 	}
 	function single_user($id=""){
 			global $mydb;
-			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where USERID= '{$id}' LIMIT 1");
+			if (empty($id)) {
+				die("Error: User ID  is empty or not set.");
+			}
+			$id = $mydb -> escape_value($id);
+			$query = "SELECT * FROM ". self::$tblname . " WHERE USERID = '{$id}' LIMIT 1";
+			echo "Executing Query: " . $query . "<br>";
+			$mydb -> setQuery($query);
 			$cur = $mydb->loadSingleResult();
+			if ($cur === null) {
+				die("Error: No user found with USERID = '{$id}");
+			}
 			return $cur;
 	}
 	/*---Instantiation of Object dynamically---*/
@@ -81,13 +89,13 @@ class User {
 	protected function attributes() { 
 		// return an array of attribute names and their values
 	  global $mydb;
-	  $attributes = array();
-	  foreach($this->dbfields() as $field) {
+	  $clean_attributes = array();
+	  foreach($this->attributes() as $key => $value) {
 	    if(property_exists($this, $field)) {
-			$attributes[$field] = $this->$field;
+			$clean_attributes[$key] = $mydb->escape_value($value);
 		}
 	  }
-	  return $attributes;
+	  return $clean_attributes;
 	}
 	
 	protected function sanitized_attributes() {
@@ -120,7 +128,7 @@ class User {
 		$sql .= ") VALUES ('";
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
-	echo $mydb->setQuery($sql);
+		$mydb->setQuery($sql);
 	
 	 if($mydb->executeQuery()) {
 	    $this->id = $mydb->insert_id();
@@ -140,22 +148,19 @@ class User {
 		$sql = "UPDATE ".self::$tblname." SET ";
 		$sql .= join(", ", $attribute_pairs);
 		$sql .= " WHERE USERID=". $id;
-	  $mydb->setQuery($sql);
-	 	if(!$mydb->executeQuery()) return false; 	
-		
-	}
+	 	$mydb->setQuery($sql);
+	 	return $mydb->executeQuery(); 	
+		}
 
 	public function delete($id=0) {
 		global $mydb;
-		  $sql = "DELETE FROM ".self::$tblname;
-		  $sql .= " WHERE USERID=". $id;
-		  $sql .= " LIMIT 1 ";
-		  $mydb->setQuery($sql);
+		$sql = "DELETE FROM ".self::$tblname;
+		$sql .= " WHERE USERID=". $id;
+		$sql .= " LIMIT 1 ";
+		$mydb->setQuery($sql);
 		  
-			if(!$mydb->executeQuery()) return false; 	
+		return $mydb->executeQuery(); 	
 	
 	}	
-
-
 }
 ?>

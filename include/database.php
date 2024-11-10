@@ -6,12 +6,10 @@ class Database {
 	var $error_msg = '';
 	private $conn;
 	public $last_query;
-	// private $magic_quotes_active;
 	private $real_escape_string_exists;
 	
 	function __construct() {
 		$this->open_connection();
-		// $this->magic_quotes_active = get_magic_quotes_gpc();
 		$this->real_escape_string_exists = function_exists("mysqli_real_escape_string");
 	}
 	
@@ -37,7 +35,8 @@ class Database {
 	}
 	
 	function executeQuery() {
-		$result = mysqli_query($this->conn,$this->sql_string);
+		echo "Executing SQL Query: " . $this->sql_string . "<br>";
+		$result = mysqli_query($this->conn, $this->sql_string);
 		$this->confirm_query($result);
 		return $result;
 	}	
@@ -46,7 +45,7 @@ class Database {
 		if(!$result){
 			$this->error_no = mysqli_errno($this->conn);
 			$this->error_msg = mysqli_error($this->conn);
-			return false;				
+			die("Database query failed: " . $this->error_msg);
 		}
 		return $result;
 	} 
@@ -69,11 +68,14 @@ class Database {
 	function loadSingleResult() {
 		$cur = $this->executeQuery();
 			
-		while ($row = mysqli_fetch_object($cur)) {
-		return $data = $row;
+		if ($cur && mysqli_num_rows($cur) > 0){
+			$row = mysqli_fetch_object($cur);
+            mysqli_free_result($cur);
+			return $row;
+		} else {
+			mysqli_free_result($cur);
+			return null;
 		}
-		mysqli_free_result($cur);
-		//return $data;
 	}
 	
 	function getFieldsOnOneTable($tbl_name) {
@@ -106,20 +108,9 @@ class Database {
 		return mysqli_affected_rows($this->conn);
 	}
 	
-	 public function escape_value( $value ) {
-		// if( $this->real_escape_string_exists ) { // PHP v4.3.0 or higher
-			// undo any magic quote effects so mysql_real_escape_string can do the work
-			// if($this->magic_quotes_active) { 
+	 public function escape_value( $value ) { 
 				$value = stripslashes($value); 
-				//}
 			$value = mysqli_real_escape_string($this->conn,$value);
-		// } else { // before PHP v4.3.0
-			// if magic quotes aren't already on then add slashes manually
-			// if( !$this->magic_quotes_active ) { 
-				$value = addslashes($value); 
-			// }
-			// if magic quotes are active, then the slashes already exist
-		//}
 		return $value;
    	}
 	
@@ -132,6 +123,5 @@ class Database {
 	
 } 
 $mydb = new Database();
-
 
 ?>

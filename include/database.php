@@ -35,7 +35,6 @@ class Database {
 	}
 	
 	function executeQuery() {
-		echo "Executing SQL Query: " . $this->sql_string . "<br>";
 		$result = mysqli_query($this->conn, $this->sql_string);
 		$this->confirm_query($result);
 		return $result;

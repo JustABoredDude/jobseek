@@ -58,7 +58,6 @@ class User {
 			}
 			$id = $mydb -> escape_value($id);
 			$query = "SELECT * FROM ". self::$tblname . " WHERE USERID = '{$id}' LIMIT 1";
-			echo "Executing Query: " . $query . "<br>";
 			$mydb -> setQuery($query);
 			$cur = $mydb->loadSingleResult();
 			if ($cur === null) {

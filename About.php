@@ -32,7 +32,6 @@
 						<div class="team-six">
 							<div class="row">
 								<div class="col-md-2 col-sm-6">
-									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
 										<img class="img-responsive" src="img/team1.jpg" alt="">

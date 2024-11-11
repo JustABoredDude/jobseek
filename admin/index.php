@@ -11,13 +11,9 @@ switch ($view) {
         // $title="Home"; 
     // $content='home.php'; 
     if ($_SESSION['ADMIN_ROLE']=='Cashier') {
-        # code...
       redirect('orders/');
-
     } 
     if ($_SESSION['ADMIN_ROLE']=='Administrator') {
-        # code... 
-
       redirect('meals/');
 
     } 

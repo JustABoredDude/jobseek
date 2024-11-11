@@ -224,9 +224,7 @@
   </footer>
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-<!-- javascript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/jquery.js"></script>
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/jquery.easing.1.3.js"></script>
 <script src="<?php echo web_root; ?>plugins/home-plugins/js/bootstrap.min.js"></script>

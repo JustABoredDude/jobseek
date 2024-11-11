@@ -40,21 +40,15 @@
        
                   </tbody>
                 </table>
-                <!-- /.table -->
               </div>
-              <!-- /.mail-box-messages -->
             </div> 
           </div>
-          <!-- /. box -->
         </div>
-        <!-- /.col -->
         <?php }else{
           require_once ("viewjob.php");          
         } ?>
       </div>
-      <!-- /.row -->
     </section>
-    <!-- /.content -->
   </div>
    
  

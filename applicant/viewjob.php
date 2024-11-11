@@ -34,7 +34,6 @@ global $mydb;
 }
 .content-body {
 	min-height: 350px;
-	/*border-bottom: 1px solid #ddd;*/
 }
 .content-body >p {
 	padding:10px;
@@ -59,7 +58,6 @@ global $mydb;
 }
 .content-footer  .submitbutton{  
 	margin-top: 20px;
-	/*padding: 0;*/
 
 }
 </style>

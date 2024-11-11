@@ -13,9 +13,6 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-  // ============================================================
-
   function transitionEnd() {
     var el = document.createElement('bootstrap')
 
@@ -35,7 +32,6 @@ if (typeof jQuery === 'undefined') {
     return false // explicit for ie8 (  ._.)
   }
 
-  // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
     var $el = this

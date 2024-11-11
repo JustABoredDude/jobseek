@@ -78,7 +78,6 @@ switch ($action) {
 				message("Uploaded file is not an image!", "error");
 				redirect("index.php?view=view&id=". $_GET['id']);
 			}else{
-					//uploading the file
 					move_uploaded_file($temp,"photos/" . $myfile);
 		 	
 					 

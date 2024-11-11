@@ -160,7 +160,6 @@ function product_exists($pid,$q){
     for($i=0;$i<$max;$i++){
       if($pid==$_SESSION['gcCart'][$i]['mealid']){
           if($q>0  && $q<=999){
-            # code...
             $flag=1;
              $_SESSION['gcCart'][$i]['qty']= $_SESSION['gcCart'][$i]['qty'] + $q;
              $_SESSION['gcCart'][$i]['subtotal']= $_SESSION['gcCart'][$i]['price'] * $_SESSION['gcCart'][$i]['qty'];
@@ -233,7 +232,6 @@ function removetocart($pid){
           for($i=0;$i<$max;$i++){
             if($pid==$_SESSION['gcCart'][$i]['mealid']){
                 if($q>0  && $q<=999){
-                  # code...
                   $flag=1;
                    $_SESSION['gcCart'][$i]['qty']= $q;
                    $_SESSION['gcCart'][$i]['subtotal']= $_SESSION['gcCart'][$i]['price'] * $_SESSION['gcCart'][$i]['qty'];
@@ -257,7 +255,6 @@ function admin_product_exists($pid,$q){
     for($i=0;$i<$max;$i++){
       if($pid==$_SESSION['admin_gcCart'][$i]['mealid']){
           if($q>0  && $q<=999){
-            # code...
             $flag=1;
              $_SESSION['admin_gcCart'][$i]['qty']= $_SESSION['admin_gcCart'][$i]['qty'] + $q;
              $_SESSION['admin_gcCart'][$i]['subtotal']= $_SESSION['admin_gcCart'][$i]['price'] * $_SESSION['admin_gcCart'][$i]['qty'];
@@ -328,7 +325,6 @@ function admin_removetocart($pid){
           for($i=0;$i<$max;$i++){
             if($pid==$_SESSION['admin_gcCart'][$i]['mealid']){
                 if($q>0  && $q<=999){
-                  # code...
                   $flag=1;
                    $_SESSION['admin_gcCart'][$i]['qty']= $q;
                    $_SESSION['admin_gcCart'][$i]['subtotal']= $_SESSION['admin_gcCart'][$i]['price'] * $_SESSION['admin_gcCart'][$i]['qty'];

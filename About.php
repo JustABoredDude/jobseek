@@ -19,16 +19,11 @@
 	</section>
 	<div class="container">
 						<br>
-						<!-- Our Team starts -->
-				
-						<!-- Heading -->
 						<div class="block-heading-six">
 							<h4 class="bg-color">Our Team</h4>
 						</div>
 						<br>
-						
-						<!-- Our team starts -->
-						
+
 						<div class="team-six">
 							<div class="row">
 								<div class="col-md-2 col-sm-6">
@@ -82,12 +77,6 @@
 								</div>
 							</div>
 						</div>
-					
-						<!-- Our team ends -->
-					  
-						
-					</div>
-									
+					</div>					
 				</div>
 	</section> 
- 

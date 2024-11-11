@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS `tblapplicants` (
   `CONTACTNO` varchar(90) NOT NULL,
   `DEGREE` text NOT NULL,
   `APPLICANTPHOTO` varchar(255) NOT NULL,
-  `NATIONALID` varchar(255) NOT NULL,
   PRIMARY KEY (`APPLICANTID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2018016 ;
 
@@ -49,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `tblapplicants` (
 -- Dumping data for table `tblapplicants`
 --
 
-INSERT INTO `tblapplicants` (`APPLICANTID`, `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`, `CONTACTNO`, `DEGREE`, `APPLICANTPHOTO`, `NATIONALID`) VALUES
+INSERT INTO `tblapplicants` (`APPLICANTID`, `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`, `CONTACTNO`, `DEGREE`, `APPLICANTPHOTO`) VALUES
 (2018013, 'Kim', 'Domingo', 'Enoe', 'Kab City', 'Female', 'none', '1991-01-01', 'Kab Citys', 27, 'kim', 'a6312121e15caec74845b7ba5af23330d52d4ac0', 'kim@y.com', '5415456', 'BSAC', 'photos/RobloxScreenShot20180406_203758793.png', ''),
 (2018014, 'Jake', 'Zyrus', 'Ilmba', 'Kab City', 'Female', 'none', '1993-01-16', 'Kab City', 25, 'jake', 'c8d99c2f7cd5f432c163abcd422672b9f77550bb', 'jake@y.com', '14655623123123', 'BSIT', '', ''),
 (2018015, 'Janry', 'Tan', 'Lim', 'brgy 1 Kab City', 'Female', 'Single', '1992-01-30', 'Kab City', 26, 'janry', '1dd4efc811372cd1efe855981a8863d10ddde1ca', 'jan@gmail.com', '0234234', 'BSIT', '', '');
@@ -144,7 +143,6 @@ CREATE TABLE IF NOT EXISTS `tblcompany` (
   `COMPANYADDRESS` varchar(90) NOT NULL,
   `COMPANYCONTACTNO` varchar(30) NOT NULL,
   `COMPANYSTATUS` varchar(90) NOT NULL,
-  `COMPANYMISSION` text NOT NULL,
   PRIMARY KEY (`COMPANYID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
@@ -152,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `tblcompany` (
 -- Dumping data for table `tblcompany`
 --
 
-INSERT INTO `tblcompany` (`COMPANYID`, `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`, `COMPANYSTATUS`, `COMPANYMISSION`) VALUES
+INSERT INTO `tblcompany` (`COMPANYID`, `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`, `COMPANYSTATUS`) VALUES
 (2, 'URC', 'Bry Camugao', '023654', '', 'weqwe'),
 (3, 'Copreros', 'Mabinay''s', '035656', '', ''),
 (4, 'Quest', 'Kabankalan City', '23165', '', ''),

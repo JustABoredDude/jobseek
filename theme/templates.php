@@ -122,12 +122,8 @@
                             $cur = $mydb->loadResultList();
 
                             foreach ($cur as $result) {
-                              # code...
-
                                 if (isset($_GET['search'])) {
-                                  # code...
                                    if ($result->CATEGORY==$_GET['search']) {
-                                     # code...
                                     $viewresult = '<li class="active"><a href="'.web_root.'index.php?q=category&search='.$result->CATEGORY.'">'.$result->CATEGORY.' Jobs</a></li>';
                                    }else{
                                     $viewresult = '<li><a href="'.web_root.'index.php?q=category&search='.$result->CATEGORY.'">'.$result->CATEGORY.' Jobs</a></li>';
@@ -161,7 +157,6 @@
       <?php
 
       if (isset($_GET['q'])) {
-        # code...
         echo '<section id="inner-headline">
             <div class="container">
                 <div class="row">

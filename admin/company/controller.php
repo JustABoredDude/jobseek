@@ -37,7 +37,6 @@ switch ($action) {
 			$company->COMPANYNAME		= $_POST['COMPANYNAME'];
 			$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
 			$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
-			// $company->COMPANYMISSION	= $_POST['COMPANYMISSION'];
 			$company->create();
 
 			message("New company created successfully!", "success");
@@ -55,7 +54,6 @@ switch ($action) {
 			$company->COMPANYNAME		= $_POST['COMPANYNAME'];
 			$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
 			$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
-			// $company->COMPANYMISSION	= $_POST['COMPANYMISSION'];
 			$company->update($_POST['COMPANYID']);
 
 			message("Company has been updated!", "success");

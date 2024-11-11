@@ -16,7 +16,6 @@
  
 
   if ($emp->SEX == 'Male') {
-    # code...
    $radio =  '<div class="col-md-8">
              <div class="col-lg-5">
                 <div class="radio">
@@ -52,7 +51,6 @@
    switch ($emp->CIVILSTATUS) {
 
      case 'Single':
-       # code...
         $civilstatus =' <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
                                       <option value="none" >Select</option>
                                       <option SELECTED value="Single">Single</option>
@@ -62,7 +60,6 @@
                                   </select> ';
        break;
      case 'Married':
-       # code...
          $civilstatus=' <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
                                       <option value="none" >Select</option>
                                       <option  value="Single">Single</option>
@@ -73,7 +70,6 @@
 
        break;
      case 'Widow':
-       # code...
        $civilstatus=' <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
                                       <option value="none" >Select</option>
                                       <option  value="Single">Single</option>
@@ -96,7 +92,6 @@
    switch ($emp->WORKSTATS) {
 
      case 'Regular':
-       # code...
         $workstatus ='
         <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
                                       <option value="none" >Select</option>
@@ -107,7 +102,6 @@
        break;
 
      case 'Regular':
-       # code...
         $workstatus ='
         <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
                                       <option value="none" >Select</option>
@@ -117,7 +111,6 @@
                                   </select> ';
        break;
      case 'Probationary':
-       # code...
          $workstatus='
          <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
                                       <option value="none" >Select</option>
@@ -187,8 +180,6 @@
                         <div class="col-md-8"> 
                           <input  class="form-control input-sm" id="MNAME" name="MNAME" placeholder=
                               "Middle Name"   value="<?php echo $emp->MNAME;?>"     autocomplete="off">
-                           <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
-                              "Description" type="text" value=""> -->
                         </div>
                       </div>
                     </div> 
@@ -326,14 +317,12 @@
                                     $mydb->setQuery($sql);
                                     $result  = $mydb->loadResultList();
                                     foreach ($result as $row) {
-                                      # code...
                                       echo '<option SELECTED value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                                     }
                                     $sql ="Select * From tblcompany WHERE COMPANYID!=".$emp->COMPANYID;
                                     $mydb->setQuery($sql);
                                     $result  = $mydb->loadResultList();
                                     foreach ($result as $row) {
-                                      # code...
                                       echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                                     }
 

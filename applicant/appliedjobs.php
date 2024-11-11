@@ -29,7 +29,6 @@
                       $mydb->setQuery($sql);
                       $cur = $mydb->loadResultList();  
                       foreach ($cur as $result) {
-                        # code...
                           echo '<tr>';
                           echo '<td class="mailbox-star"><a href="index.php?view=appliedjobs&p=job&id='.$result->REGISTRATIONID.'"><i class="fa fa-pencil-o text-yellow"></i> '.$result->OCCUPATIONTITLE.'</a></td>';
                           echo '<td class="mailbox-attachment">'.$result->COMPANYNAME.'</td>';

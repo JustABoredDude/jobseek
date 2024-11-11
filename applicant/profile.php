@@ -96,24 +96,19 @@
 
     switch ($view) {
       case 'message':
-        # code...
         require_once("message.php");
         break;
       case 'notification':
-        # code...
         require_once("notification.php");
         break;
       case 'appliedjobs':
-        # code...
         require_once("appliedjobs.php");
         break;
       case 'accounts':
-        # code...
         // require_once("accounts.php");
         break;
       
       default:
-        # code...
         require_once("appliedjobs.php");
         break;
     }

@@ -1,15 +1,3 @@
-
-<!-- <div class="form-group">
-  <div class="col-md-11">
-  <label class="col-md-4 control-label" for=
-    "NATIONALID">NationalID:</label>
-
-    <div class="col-md-8"> 
-       <input class="form-control input-sm" id="NATIONALID" name="NATIONALID" placeholder=
-          "00-000000000000" type="text" value=""  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
-    </div>
-  </div>
-</div> -->
 <div class="form-group">
 	<div class="col-md-11">
 	<label class="col-md-4 control-label" for=
@@ -45,8 +33,6 @@
 		  <input name="deptid" type="hidden" value="">
 		  <input  class="form-control input-sm" id="MNAME" name="MNAME" placeholder=
 		      "Middle Name"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
-		   <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
-		      "Description" type="text" value=""> -->
 		</div>
 	</div>
 </div> 
@@ -102,8 +88,6 @@
           
         
             foreach ($mon as $month => $value ) {
-              
-                  # code...
                    echo '<option value='.$value.'>'.$month.'</option>';
                 } 
           ?>
@@ -179,7 +163,6 @@
           <option value="Single">Single</option>
           <option value="Married">Married</option>
           <option value="Widow" >Widow</option>
-          <!-- <option value="Fourth" >Fourth</option> -->
       </select> 
     </div>
   </div>
@@ -216,8 +199,6 @@
       <input name="deptid" type="hidden" value="">
       <input  class="form-control input-sm" id="PASS" name="PASS" placeholder=
           "Password" type="password"   onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
-       <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
-          "Description" type="text" value=""> -->
     </div>
   </div>
 </div> 

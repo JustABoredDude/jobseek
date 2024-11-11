@@ -34,7 +34,6 @@
                         $mydb->setQuery($sql);
                         $cur = $mydb->loadResultList();
                         foreach ($cur as $result) {
-                          # code...
                           echo '<tr>'; 
                           echo '<td class="mailbox-name"><a href="'.web_root.'index.php?q=viewjob&search='.$result->JOBID.'">'.$result->OCCUPATIONTITLE.'</a></td>';
                           echo '<td class="mailbox-subject">'.$result->JOBDESCRIPTION.'</td>'; 

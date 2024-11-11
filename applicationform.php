@@ -2,7 +2,6 @@
   <div class="container content">     
  <?php
 if (isset($_GET['search'])) {
-# code...
 $jobid = $_GET['search'];
 }else{
 $jobid = '';

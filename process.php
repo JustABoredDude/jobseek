@@ -30,7 +30,6 @@ function doSubmitApplication() {
 
 
 		if ($picture=="") {
-			# code...
 			redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
 		}else{ 
 			
@@ -47,7 +46,6 @@ function doSubmitApplication() {
 				 
 				$sql = "INSERT INTO `tblattachmentfile` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
 				VALUES ('". date('Y').$fileid->AUTO."','". date('Y').$applicantid->AUTO."','Resume','{$location}','{$jobid}')";
-				// echo $sql;exit;
 				$mydb->setQuery($sql); 
 				$res = $mydb->executeQuery(); 
 
@@ -206,8 +204,7 @@ function doLogin(){
 	$email = trim($_POST['USERNAME']);
 	$upass  = trim($_POST['PASS']);
 	$h_upass = sha1($upass);
- 
-  //it creates a new objects of member
+
     $applicant = new Applicants();
     //make use of the static function, and we passed to parameters
     $res = $applicant->applicantAuthentication($email, $h_upass);
@@ -238,13 +235,9 @@ function UploadImage($jobid=0){
 			return  date("dmYhis") . basename($_FILES["picture"]["name"]);
 		}else{
 			message("Error Uploading File","error");
-			// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
-			// exit;
 		}
 	}else{
 			message("File Not Supported","error");
-			// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
-			// exit;
 		}
 } 
 

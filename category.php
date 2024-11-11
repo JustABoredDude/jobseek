@@ -3,7 +3,6 @@
 
  <?php
  if (isset($_GET['search'])) {
-     # code...
     $category = $_GET['search'];
  }else{
      $category = '';

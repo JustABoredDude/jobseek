@@ -31,9 +31,6 @@
           <h3>Partner with Business Leaders</h3>
           <p>Development of successful, long term, strategic relationships between customers and suppliers, based on achieving best practice and sustainable competitive advantage. In the business partner model, HR professionals work closely with business leaders and line managers to achieve shared organisational objectives.</p>
         </div>
-       <!--  <div class="col-md-2 col-sm-3">
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div> -->
       </div>
     </div>
   </section>
@@ -55,15 +52,12 @@
       $comp = $mydb->loadResultList();
 
 
-      foreach ($comp as $company ) {
-        # code...
-    
+      foreach ($comp as $company ) {  
     ?>
             <div class="col-sm-4 info-blocks">
                 <i class="icon-info-blocks fa fa-building-o"></i>
                 <div class="info-blocks-in">
                     <h3><?php echo $company->COMPANYNAME;?></h3>
-                    <!-- <p><?php echo $company->COMPANYMISSION;?></p> -->
                     <p>Address :<?php echo $company->COMPANYADDRESS;?></p>
                     <p>Contact No. :<?php echo $company->COMPANYCONTACTNO;?></p>
                 </div>
@@ -121,8 +115,8 @@
           &nbsp;&nbsp;And we never go it alone. We support and are supported to develop our own personal results stories. We balance challenging and co-creating with our clients, building the internal capabilities required for them to create repeatable results. </p>
         </div> 
       </div>
-    </div><!-- /.row-->
-  </div><!-- /.container -->
+    </div>
+  </div>
 </section>
   
   

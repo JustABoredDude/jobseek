@@ -68,8 +68,6 @@
                           <input name="deptid" type="hidden" value="">
                           <input  class="form-control input-sm" id="MNAME" name="MNAME" placeholder=
                               "Middle Name"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
-                           <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
-                              "Description" type="text" value=""> -->
                         </div>
                       </div>
                     </div> 
@@ -126,8 +124,6 @@
                                       
                                     
                                         foreach ($mon as $month => $value ) {
-                                          
-                                              # code...
                                                echo '<option value='.$value.'>'.$month.'</option>';
                                             }
                                       
@@ -277,7 +273,6 @@
                                         $mydb->setQuery($sql);
                                         $res  = $mydb->loadResultList();
                                         foreach ($res as $row) {
-                                          # code...
                                           echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                                         }
 

@@ -1,16 +1,12 @@
- 
-     <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button class="close" data-dismiss="modal" type=
-                  "button">×</button>
+<div class="modal fade" id="myModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type=
+          "button">×</button>
 
-                  <h4 class="modal-title" id="myModalLabel">Login</h4>
-                </div>
-
-                <!-- <form action="process.php?action=login" enctype="multipart/form-data" method="post"> -->
+          <h4 class="modal-title" id="myModalLabel">Login</h4>
+</div>
                   <div class="modal-body hold-transition login-page">
                     <div id="loginerrormessage"></div>
                     <div class="login-box"> 
@@ -33,11 +29,8 @@
                                   </label>
                                 </div>
                               </div>
-                              <!-- /.col -->
-                              <div class="col-xs-4">
-                                
+                              <div class="col-xs-4">                                
                               </div>
-                              <!-- /.col -->
                             </div>
                           </form> 
                           
@@ -45,7 +38,6 @@
                           <a href="<?php echo web_root; ?>admin/login.php" class="text-center">I'm an Admin</a>
 
                         </div>
-                        <!-- /.login-box-body -->
                       </div>
                   </div>
 
@@ -62,8 +54,6 @@
                   }
                   });
                   </script>
-
-                <!-- </form> -->
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
+              </div>
+            </div>
+          </div>

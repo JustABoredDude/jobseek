@@ -5,8 +5,7 @@
     }
   </style>
 <?php 
-if (!isset($_GET['p'])) {
-  # code... 
+if (!isset($_GET['p'])) { 
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -57,7 +56,6 @@ if (!isset($_GET['p'])) {
                         $mydb->setQuery($sql);
                         $cur = $mydb->loadResultList();
                         foreach ($cur as $result) {
-                          # code...
                           echo '<tr>';
                           echo '<td><input type="checkbox"></td>';
                           // echo '<td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>';

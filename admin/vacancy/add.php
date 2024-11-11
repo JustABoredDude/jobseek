@@ -27,7 +27,6 @@
                             $mydb->setQuery($sql);
                             $res  = $mydb->loadResultList();
                             foreach ($res as $row) {
-                              # code...
                               echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                             }
 
@@ -50,7 +49,6 @@
                             $mydb->setQuery($sql);
                             $res  = $mydb->loadResultList();
                             foreach ($res as $row) {
-                              # code...
                               echo '<option value='.$row->CATEGORYID.'>'.$row->CATEGORY.'</option>';
                             }
 

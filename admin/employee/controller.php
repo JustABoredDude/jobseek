@@ -68,8 +68,7 @@ switch ($action) {
 
 				// $res = mysqli_query($sql) or die(mysql_error());
 				// $maxrow = mysql_num_rows($res);
-				if ($maxrow > 0) { 
-					# code... 
+				if ($maxrow > 0) {
 					message("Employee ID already in use!", "error");
 					redirect("index.php?view=add");
 				}else{
@@ -172,7 +171,6 @@ switch ($action) {
 					$u_res = $user->single_user($_POST['EMPLOYEEID']);
 
 					if (isset($u_res)) {
-						# code...
 						$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
 						$user->USERNAME			= $_POST['LNAME'];
 						$user->PASS				= sha1($_POST['EMPLOYEEID']); 

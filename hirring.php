@@ -13,7 +13,6 @@
      <tbody>
         <?php
  if (isset($_GET['search'])) {
-     # code...
     $COMPANYNAME = $_GET['search'];
  }else{
      $COMPANYNAME = '';

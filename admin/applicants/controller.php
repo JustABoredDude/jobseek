@@ -68,12 +68,7 @@ switch ($action) {
 				$mydb->setQuery($sql);
 				$cur = $mydb->executeQuery();
 				$maxrow = $mydb->num_rows($cur);
-
-
-				// $res = mysqli_query($sql) or die(mysql_error());
-				// $maxrow = mysql_num_rows($res);
 				if ($maxrow > 0) { 
-					# code... 
 					message("Employee ID already in use!", "error");
 					redirect("index.php?view=add");
 				}else{
@@ -271,7 +266,6 @@ switch ($action) {
 function doApproved(){
 global $mydb;
 	if (isset($_POST['submit'])) {
-		# code...
 		$id = $_POST['JOBREGID'];
 		$applicantid = $_POST['APPLICANTID'];
 
@@ -281,12 +275,10 @@ global $mydb;
 		$cur = $mydb->executeQuery();
 
 		if ($cur) {
-			# code...
 			$sql = "SELECT * FROM `tblfeedback` WHERE `REGISTRATIONID`='{$id}'";
 			$mydb->setQuery($sql);
 			$res = $mydb->loadSingleResult();
 			if (isset($res)) {
-				# code...
 				$sql="UPDATE `tblfeedback` SET `FEEDBACK`='{$remarks}' WHERE `REGISTRATIONID`='{$id}'";
 				$mydb->setQuery($sql);
 				$cur = $mydb->executeQuery();

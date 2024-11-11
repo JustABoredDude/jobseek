@@ -128,25 +128,20 @@ body {
 
 								switch ($searchfor) {
 									case 'bycompany':
-										# code...
 									echo 'Result : '  . $search . ' | Company : ' . $company;
 										break;
 									case 'advancesearch':
-										# code... 
 									echo 'Result : '  . $search . ' | Company : ' . $company . ' | Function : ' . $category; 
 									    break;
 									case 'byfunction':
-										# code... 
 									echo 'Result : '  . $search . ' | Function : ' . $category; 
 									    break;
 
-									case 'bytitle':
-										# code... 
+									case 'bytitle': 
 									echo 'Result : '  . $search; 
 									    break;
 									
 									default:
-										# code...
 										break;
 								}
 
@@ -170,7 +165,6 @@ body {
 										$maxrow = $mydb->num_rows($cur);
 
 										if ($maxrow > 0) {
-											# code... 
 										$res = $mydb->loadResultList();
 										foreach ($res as $row) { 
 									?>
@@ -178,7 +172,6 @@ body {
 										<td> 
 											<div class="media">
 												<a href="#" class="pull-left">
-													<!-- <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo"> -->
 											     <span class="fa fa-building-o"></span>
 												</a>
 												<div class="media-body">

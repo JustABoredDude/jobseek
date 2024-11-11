@@ -227,10 +227,8 @@
         <?php
 
           if ($title!='Home') {
-            # code... 
             $active_title = '';
             if (isset($_GET['view'])) {
-              # code...
               $active_title = '<li class='.$active_title.'><a href="index.php">'.$title.'</a></li>';
             }else{
               $active_title = '<li class='.$active_title.'>'.$title.'</li>';

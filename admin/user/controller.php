@@ -69,7 +69,6 @@ switch ($action) {
 
 
 			if (isset($_GET['view'])) {
-				# code...
 				  message("Profile has been updated!", "success");
 				redirect("index.php?view=view");
 			}else{ 

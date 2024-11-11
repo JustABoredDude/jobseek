@@ -32,14 +32,12 @@
                             $mydb->setQuery($sql);
                             $result  = $mydb->loadResultList();
                             foreach ($result as $row) {
-                              # code...
                               echo '<option SELECTED value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                             }
                             $sql ="Select * From tblcompany WHERE COMPANYID!=".$res->COMPANYID;
                             $mydb->setQuery($sql);
                             $result  = $mydb->loadResultList();
                             foreach ($result as $row) {
-                              # code...
                               echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
                             }
 
@@ -61,14 +59,12 @@
                             $mydb->setQuery($sql);
                             $cur  = $mydb->loadResultList();
                             foreach ($cur as $result) {
-                              # code...
                               echo '<option SELECTED value='.$result->CATEGORYID.'>'.$result->CATEGORY.'</option>';
                             }
                             $sql ="SELECT * FROM `tblcategory` WHERE CATEGORY!='".$res->CATEGORY."'";
                             $mydb->setQuery($sql);
                             $cur  = $mydb->loadResultList();
                             foreach ($cur as $result) {
-                              # code...
                               echo '<option value='.$result->CATEGORYID.'>'.$result->CATEGORY.'</option>';
                             }
 

@@ -89,7 +89,7 @@ function doInsert($jobid=0,$fileid=0) {
 			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
 			$applicant->AGE = $age;
 			$applicant->USERNAME = $_POST['USERNAME'];
-			$applicant->PASS = sha1($_POST['PASS']);
+			$applicant->PASS = $_POST['PASS'];
 			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
 			$applicant->CONTACTNO = $_POST['TELNO'];
 			$applicant->DEGREE = $_POST['DEGREE'];
@@ -179,7 +179,7 @@ function doRegister(){
 			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
 			$applicant->AGE = $age;
 			$applicant->USERNAME = $_POST['USERNAME'];
-			$applicant->PASS = sha1($_POST['PASS']);
+			$applicant->PASS = $_POST['PASS'];
 			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
 			$applicant->CONTACTNO = $_POST['TELNO'];
 			$applicant->DEGREE = $_POST['DEGREE'];
@@ -203,11 +203,10 @@ function doLogin(){
 	
 	$email = trim($_POST['USERNAME']);
 	$upass  = trim($_POST['PASS']);
-	$h_upass = sha1($upass);
 
     $applicant = new Applicants();
     //make use of the static function, and we passed to parameters
-    $res = $applicant->applicantAuthentication($email, $h_upass);
+    $res = $applicant->applicantAuthentication($email, $upass);
     if ($res==true) { 
 
        	message("Login successfully!","success");

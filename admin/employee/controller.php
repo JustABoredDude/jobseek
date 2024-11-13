@@ -92,7 +92,7 @@ switch ($action) {
 					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS	= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
-					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
+					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
 					$emp->DATEHIRED			=  @$datehired;
 					$emp->COMPANYID			= $_POST['COMPANYID'];
 					$emp->create(); 
@@ -103,7 +103,7 @@ switch ($action) {
 					$user->USERID 			= $_POST['EMPLOYEEID'];
 					$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
 					$user->USERNAME			= $_POST['LNAME'];
-					$user->PASS				= sha1($_POST['EMPLOYEEID']);
+					$user->PASS				= $_POST['EMPLOYEEID'];
 					$user->ROLE				= 'Employee';
 					$user->create();
 			 
@@ -161,7 +161,7 @@ switch ($action) {
 					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS		= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
-					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
+					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
 					$emp->DATEHIRED			=  @$datehired;
 					$emp->COMPANYID			= $_POST['COMPANYID']; 
 					$emp->update($_POST['EMPLOYEEID']);
@@ -173,14 +173,14 @@ switch ($action) {
 					if (isset($u_res)) {
 						$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
 						$user->USERNAME			= $_POST['LNAME'];
-						$user->PASS				= sha1($_POST['EMPLOYEEID']); 
+						$user->PASS				= $_POST['EMPLOYEEID']; 
 						$user->update($_POST['EMPLOYEEID']);
 					}else{
 						$user = New User();
 						$user->USERID 			= $_POST['EMPLOYEEID'];
 						$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
 						$user->USERNAME			= $_POST['LNAME'];
-						$user->PASS				= sha1($_POST['EMPLOYEEID']);
+						$user->PASS				= ($_POST['EMPLOYEEID']);
 						$user->ROLE				= 'Employee';
 						$user->create();
 					}

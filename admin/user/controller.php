@@ -39,8 +39,8 @@ switch ($action) {
 			$user->USERID 			= $_POST['user_id'];
 			$user->FULLNAME 		= $_POST['U_NAME'];
 			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				=sha1($_POST['U_PASS']);
-			$user->ROLE				=  $_POST['U_ROLE'];
+			$user->PASS				= $_POST['U_PASS'];
+			$user->ROLE				= $_POST['U_ROLE'];
 			$user->create();
 
 						$autonum = New Autonumber(); 
@@ -61,7 +61,7 @@ switch ($action) {
 			$user = New User(); 
 			$user->FULLNAME 		= $_POST['U_NAME'];
 			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				=sha1($_POST['U_PASS']);
+			$user->PASS				= $_POST['U_PASS'];
 			$user->ROLE				= $_POST['U_ROLE'];
 			$user->update($_POST['USERID']);
 

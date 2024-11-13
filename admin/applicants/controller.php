@@ -92,7 +92,7 @@ switch ($action) {
 					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS	= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
-					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
+					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
 					$emp->DATEHIRED			=  @$datehired;
 					$emp->COMPANYID			= $_POST['COMPANYID'];
 					$emp->create(); 
@@ -153,7 +153,7 @@ switch ($action) {
 					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS		= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
-					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
+					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
 					$emp->DATEHIRED			=  @$datehired;
 					$emp->COMPANYID			= $_POST['COMPANYID'];
 

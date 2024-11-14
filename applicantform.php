@@ -220,7 +220,7 @@
       "d"></label>  
 
       <div class="col-md-8">
-        <label><input type="checkbox"> By Sign up you are agree with our <a href="#">terms and conditions</a></label>
+        <label><input type="checkbox" required> By Sign up you are agree with our <a href="#">terms and conditions</a></label>
      
      </div>
     </div>

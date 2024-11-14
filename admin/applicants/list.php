@@ -43,7 +43,7 @@
 					  				echo '<td align="center" >    
 					  		             <a title="View" href="index.php?view=view&id='.$result->REGISTRATIONID.'"  class="btn btn-info btn-xs  ">
 					  		             <span class="fa fa-info fw-fa"></span> View</a> 
-					  		             <a title="Remove" href="index.php?view=delete&id='.$result->REGISTRATIONID.'"  class="btn btn-danger btn-xs  ">
+					  		             <a title="Remove" href="index.php?view=delete&id='.$result->REGISTRATIONID.'"  class="btn btn-danger btn-xs" onclick="return confirmDelete();">
 					  		             <span class="fa fa-trash-o fw-fa"></span> Remove</a> 
 					  					 </td>';
 							  		echo '</tr>';
@@ -55,6 +55,8 @@
  
 							 
 							</form>
-       
-                 
- 
+	<script>
+		function confirmDelete() {
+    	return confirm("Are you sure you want to remove this applicant?");
+		}
+	</script>

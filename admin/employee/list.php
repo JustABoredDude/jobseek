@@ -8,7 +8,6 @@
     <div class="col-lg-12">
             <h1 class="page-header">List of Employee's  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Add New Employee</a>  </h1>
        		</div>
-        	<!-- /.col-lg-12 -->
    		 </div>
                 
  
@@ -39,7 +38,6 @@
 
 									foreach ($cur as $result) { 
 							  		echo '<tr>';
-							  		// echo '<td width="5%" align="center"></td>';
 							  		echo '<td>' . $result->EMPLOYEEID.'</a></td>';
 							  		echo '<td>'. $result->LNAME.', '. $result->FNAME.'</td>';
 							  		echo '<td>'. $result->ADDRESS.'</td>';
@@ -52,7 +50,7 @@
 					  				echo '<td align="center" >    
 					  		             <a title="Edit" href="index.php?view=edit&id='.$result->EMPLOYEEID.'"  class="btn btn-info btn-xs  ">
 					  		             <span class="fa fa-edit fw-fa"></span></a> 
-					  		             <a title="Delete" href="controller.php?action=delete&id='.$result->EMPLOYEEID.'"  class="btn btn-danger btn-xs  ">
+					  		             <a title="Delete" href="controller.php?action=delete&id='.$result->EMPLOYEEID.'"  class="btn btn-danger btn-xs" onclick="return confirmDelete();">
 					  		             <span class="fa fa-trash-o fw-fa"></span></a> 
 					  					 </td>';
 							  		echo '</tr>';
@@ -61,9 +59,11 @@
 							  </tbody>
 								
 							</table>
- 
 							 
 							</form>
        
-                 
- 
+	<script>
+		function confirmDelete() {
+    	return confirm("Are you sure you want to remove this employee?");
+		}
+	</script>

@@ -36,7 +36,7 @@
 				  			echo '<td>' . $result->COMPANYADDRESS.'</td>';
 				  			echo '<td>' . $result->COMPANYCONTACTNO.'</td>';
 				  		echo '<td align="center"><a title="Edit" href="index.php?view=edit&id='.$result->COMPANYID.'" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
-				  		     <a title="Delete" href="controller.php?action=delete&id='.$result->COMPANYID.'" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
+				  		     <a title="Delete" href="controller.php?action=delete&id='.$result->COMPANYID.'" class="btn btn-danger btn-xs" onclick="return confirmDelete();">  <span class="fa  fa-trash-o fw-fa "></a></td>';
 				  		// echo '<td></td>';
 				  		echo '</tr>';
 				  	} 
@@ -51,8 +51,13 @@
 					// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
 					; }?>
 				</div>
-			
-			
+
 				</form>
 	
+				
+	<script>
+		function confirmDelete() {
+    	return confirm("Are you sure you want to remove this company?");
+		}
+	</script>
  <div class="table-responsive">	 

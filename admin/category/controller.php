@@ -37,7 +37,7 @@ switch ($action) {
 			$category->CATEGORY	= $_POST['CATEGORY'];
 			$category->create();
 
-			message("New [". $_POST['CATEGORY'] ."] created successfully!", "success");
+			message("New category created!", "success");
 			redirect("index.php");
 			
 		}

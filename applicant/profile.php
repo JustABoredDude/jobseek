@@ -129,14 +129,12 @@
         </div><!--/col-sm-9-->
     </div><!--/row-->
 
-  </div><!--/contanier--> 
+  </div>
 
    <?php  
     unset($_SESSION['appliedjobs']);
     unset($_SESSION['accounts']); 
      ?>
- 
-         <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -174,6 +172,6 @@
                                         name="savephoto" type="submit">Upload Photo</button>
                                     </div>
                                 </form>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                            </div>
+                        </div>
+                    </div>

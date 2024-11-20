@@ -58,7 +58,6 @@ if (!isset($_GET['p'])) {
                         foreach ($cur as $result) {
                           echo '<tr>';
                           echo '<td><input type="checkbox"></td>';
-                          // echo '<td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>';
                           echo '<td class="mailbox-name"><a href="index.php?view=message&p=readmessage&id='.$result->REGISTRATIONID.'">'.$result->COMPANYNAME.'</a></td>';
                           echo '<td class="mailbox-subject">'.$result->REMARKS.'</td>'; 
                           echo '<td class="mailbox-date">'.$result->DATETIMEAPPROVED.'</td>';

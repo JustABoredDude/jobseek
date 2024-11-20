@@ -24,7 +24,6 @@
 							  		 <th>ContactNo</th>
 							  		 <!-- <th>Department</th> -->
 							  		 <th>Position</th>
-							  		 <!-- <th>Work Status</th> -->
 							  	 	<th width="14%" >Action</th> 
 							  	</tr>	
 							  </thead> 
@@ -38,7 +37,7 @@
 
 									foreach ($cur as $result) { 
 							  		echo '<tr>';
-							  		echo '<td>' . $result->EMPLOYEEID.'</a></td>';
+							  		echo '<td>'. $result->EMPLOYEEID.'</a></td>';
 							  		echo '<td>'. $result->LNAME.', '. $result->FNAME.'</td>';
 							  		echo '<td>'. $result->ADDRESS.'</td>';
 							  		echo '<td>'. $result->SEX.'</td>';
@@ -46,7 +45,6 @@
 							  		echo '<td>'. $result->TELNO.'</td>';
 							  		// echo '<td>'. $result->DEPARTMENT.'</td>';
 							  		echo '<td>'. $result->POSITION.'</td>';
-							  		// echo '<td>'. $result->WORKSTATS.'</td>'; 
 					  				echo '<td align="center" >    
 					  		             <a title="Edit" href="index.php?view=edit&id='.$result->EMPLOYEEID.'"  class="btn btn-info btn-xs  ">
 					  		             <span class="fa fa-edit fw-fa"></span></a> 

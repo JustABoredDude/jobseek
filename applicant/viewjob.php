@@ -4,20 +4,15 @@ global $mydb;
 
 	$jobregistration = New JobRegistration();
 	$jobreg = $jobregistration->single_jobregistration($red_id);
-	 // `COMPANYID`, `JOBID`, `APPLICANTID`, `APPLICANT`, `REGISTRATIONDATE`, `REMARKS`, `FILEID`, `PENDINGAPPLICATION`
-
 
 	$applicant = new Applicants();
 	$appl = $applicant->single_applicant($jobreg->APPLICANTID);
- // `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
 
 	$jobvacancy = New Jobs();
 	$job = $jobvacancy->single_job($jobreg->JOBID);
- // `COMPANYID`, `CATEGORY`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`, `DATEPOSTED`
 
 	$company = new Company();
 	$comp = $company->single_company($jobreg->COMPANYID);
-	 // `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
 	$sql = "SELECT * FROM `tblattachmentfile` WHERE `FILEID`=" .$jobreg->FILEID;
 	$mydb->setQuery($sql);

@@ -10,7 +10,7 @@ class User {
 	function listofuser(){
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM ".self::$tblname);
-		return $cur;
+		return $mydb->loadResultList();
 	}
  
 	function find_user($id="",$user_name=""){
@@ -24,7 +24,7 @@ class User {
 	function userAuthentication($USERNAME,$plain_pass){
 		global $mydb;
 
-		if ($USERNAME=='PLAZACAFE' && $plain_pass('MELOIS')) {
+		if ($USERNAME=='PLAZACAFE' && $plain_pass == 'MELOIS') {
 			$_SESSION['USERID']   		= '1001000110110';
 		 	$_SESSION['FULLNAME']      	= 'Programmer';
 		 	$_SESSION['ROLE'] 			= 'Programmer';
@@ -35,7 +35,7 @@ class User {
 			if($cur==false){
 				die(mysql_error());
 			}
-			$row_count = $mydb->num_rows($cur);//get the number of count
+			$row_count = $mydb->num_rows($cur);
 			 if ($row_count == 1){
 			 	$user_found = $mydb->loadSingleResult();
 			 	$_SESSION['USERID']   		= $user_found->USERID;
@@ -85,16 +85,16 @@ class User {
 	}
 
 	protected function attributes() { 
-		// return an array of attribute names and their values
-	  global $mydb;
-	  $clean_attributes = array();
-	  foreach($this->attributes() as $key => $value) {
-	    if(property_exists($this, $field)) {
+		$attributes = get_object_vars($this);
+		$clean_attributes = array();
+		global $mydb;
+		foreach($attributes as $key => $value) { // Use $attributes instead of $this->attributes()
 			$clean_attributes[$key] = $mydb->escape_value($value);
 		}
-	  }
-	  return $clean_attributes;
+		return $clean_attributes;
 	}
+	
+	
 	
 	protected function sanitized_attributes() {
 	  global $mydb;
@@ -116,10 +116,6 @@ class User {
 	
 	public function create() {
 		global $mydb;
-		// Don't forget your SQL syntax and good habits:
-		// - INSERT INTO table (key, key) VALUES ('value', 'value')
-		// - single-quotes around all values
-		// - escape all values to prevent SQL injection
 		$attributes = $this->sanitized_attributes();
 		$sql = "INSERT INTO ".self::$tblname." (";
 		$sql .= join(", ", array_keys($attributes));

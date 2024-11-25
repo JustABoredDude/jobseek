@@ -20,7 +20,7 @@
 	<div class="container">
 						<br>
 						<div class="block-heading-six">
-							<h4 class="bg-color">Our Team</h4>
+							<h4 class="bg-color">Members:</h4>
 						</div>
 						<br>
 
@@ -29,10 +29,9 @@
 								<div class="col-md-2 col-sm-6">
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team1.jpg" alt="">
+										<img class="img-responsive" src="aboutphotos/khurs.jpg" alt="">
 										<!-- Name -->
-										<h4>Barredo, Khursten</h4>
-										<span class="deg">Creative</span> 
+										<h4>Barredo, Khursten</h4> 
 									</div>
 								</div>
 								<div class="col-md-2 col-sm-6">
@@ -42,37 +41,33 @@
 										<img class="img-responsive" src="img/team2.jpg" alt="">
 										<!-- Name -->
 										<h4>De Guzman, Karlo</h4>
-										<span class="deg">Programmer</span> 
 									</div>
 								</div>
 								<div class="col-md-2 col-sm-6">
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team3.jpg" alt="">
+										<img class="img-responsive" src="aboutphotos/cymon.jpg" alt="">
 										<!-- Name -->
 										<h4>Flameno, Cymon</h4>
-										<span class="deg">CEO</span> 
 									</div>
 								</div>
 								<div class="col-md-2 col-sm-6">
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team4.jpg" alt="">
+										<img class="img-responsive" src="aboutphotos/emar.jpg" alt="">
 										<!-- Name -->
 										<h4>Lozada, Emar</h4>
-										<span class="deg">Manager</span> 
 									</div>
 								</div>
 								<div class="col-md-2 col-sm-6">
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team4.jpg" alt="">
+										<img class="img-responsive" src="aboutphotos/jov.jpg" alt="">
 										<!-- Name -->
 										<h4>Salic, Jovince </h4>
-										<span class="deg">Programmer</span> 
 									</div>
 								</div>
 							</div>

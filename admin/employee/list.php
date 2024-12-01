@@ -22,15 +22,12 @@
 							  		 <th>Sex</th>
 							  		 <th>Age</th>
 							  		 <th>ContactNo</th>
-							  		 <!-- <th>Department</th> -->
 							  		 <th>Position</th>
 							  	 	<th width="14%" >Action</th> 
 							  	</tr>	
 							  </thead> 
 							  <tbody>
 							  	<?php   
-							  		// $mydb->setQuery("SELECT * 
-											// 			FROM  `tblusers` WHERE TYPE != 'Customer'");
 							  		$mydb->setQuery("SELECT * 
 														FROM   `tblemployees`");
 							  		$cur = $mydb->loadResultList();
@@ -43,7 +40,6 @@
 							  		echo '<td>'. $result->SEX.'</td>';
 							  		echo '<td>'. $result->AGE.'</td>';
 							  		echo '<td>'. $result->TELNO.'</td>';
-							  		// echo '<td>'. $result->DEPARTMENT.'</td>';
 							  		echo '<td>'. $result->POSITION.'</td>';
 					  				echo '<td align="center" >    
 					  		             <a title="Edit" href="index.php?view=edit&id='.$result->EMPLOYEEID.'"  class="btn btn-info btn-xs  ">

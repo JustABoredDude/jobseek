@@ -26,20 +26,8 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
         <div class="col-md-6">
             <h1><strong>User Profile</strong></h1><br>
              <form class="form-horizontal span6" action="controller.php?action=edit&view=" method="POST">
- 
-                   
-                    <!-- <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for=
-                      "user_id">User Id:</label> -->
-
-                      <!-- <div class="col-md-8"> -->
                         
                          <input id="USERID" name="USERID" type="Hidden" value="<?php echo $singleuser->USERID; ?>">
-                   <!--    </div>
-                    </div>
-                  </div>      -->      
-                  
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
@@ -115,8 +103,6 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 </div>
 </div>
             
-
-     <!-- Modal -->
           <div class="modal fade" id="myModal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">

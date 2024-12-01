@@ -21,8 +21,6 @@
 				  </thead> 
 				  <tbody>
 				  	<?php 
-				  		// $mydb->setQuery("SELECT * 
-								// 			FROM  `tblusers` WHERE TYPE != 'Customer'");
 				  		$mydb->setQuery("SELECT * 
 											FROM  `tblusers`");
 				  		$cur = $mydb->loadResultList();

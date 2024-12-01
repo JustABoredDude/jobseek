@@ -1,13 +1,12 @@
   <section id="banner">
    
-  <!-- Slider -->
         <div id="main-slider" class="flexslider">
             <ul class="slides">
               <li>
                 <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/1.jpg" alt="" />
                 <div class="flex-caption">
-                    <h3>innovation</h3> 
-          <p>We create the opportunities</p> 
+                    <h3>Innovation</h3> 
+          <p>We create and seek opportunities</p> 
            
                 </div>
               </li>
@@ -21,7 +20,6 @@
               </li>
             </ul>
         </div>
-  <!-- end slider -->
  
   </section> 
   <section id="call-to-action-2">
@@ -41,7 +39,7 @@
   <div class="container">
         <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Company</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
+        <div class="aligncenter"><h2 class="aligncenter">Company</h2></div>
         <br/>
       </div>
     </div>
@@ -108,7 +106,7 @@
         </div>
         <div class="editContent"  style="height:235px;">
           <p> 
-          &nbsp;&nbsp;Our "one team" attitude breaks down silos and helps us engage equally effectively from the C-suite to the front line. Our collaborative working style emphasizes teamwork, trust, and tolerance for diverging opinions. People tell us we are down-to-earth, approachable and fun.<br/><br/>
+          &nbsp;&nbsp;Our team "Diabless" attitude breaks down silos and helps us engage equally effectively from the C-suite to the front line. Our collaborative working style emphasizes teamwork, trust, and tolerance for diverging opinions. People tell us we are down-to-earth, approachable and fun.<br/><br/>
 
           &nbsp;&nbsp;We have a passion for our clients' true results and a pragmatic drive for action that starts Monday morning 8am and doesn't let up. We rally clients with our infectious energy, to make change stick.<br/><br/>
 

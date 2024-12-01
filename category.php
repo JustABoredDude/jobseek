@@ -23,19 +23,6 @@
               </div>
               <div class="panel-body contentbody">
                     <div class="col-sm-10">
-              <!--           <div class="col-sm-6">
-                            <ul>
-                                <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
-                                <li><i class="fp-ht-food"></i>Salary : <?php echo number_format($result->SALARIES,2);  ?></li>
-                                <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul> 
-                                <li><i class="fp-ht-tv"></i>Prefered Sex : <?php echo $result->PREFEREDSEX; ?></li>
-                                <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $result->SECTOR_VACANCY; ?></li>
-                            </ul>
-                        </div> -->
                         <div class="col-sm-12">
                             <p>Qualification/Work Experience :</p>
                              <ul style="list-style: none;"> 

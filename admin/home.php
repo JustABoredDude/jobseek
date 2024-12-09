@@ -121,116 +121,111 @@
           <!-- /.nav-tabs-custom -->
 
           <!-- TO DO List -->
-          <div class="box box-primary">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">To Do List</h3>
-
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <ul class="todo-list">
-                <li>
-                  <!-- drag handle -->
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="" name="">
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="" name="">
-                  <span class="text">Make the theme responsive</span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="" name="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="" name="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="" name="">
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="" name="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-            </div>
+<!-- TO DO List -->
+<div class="box box-primary">
+  <div class="box-header">
+    <i class="ion ion-clipboard"></i>
+    <h3 class="box-title">To-Do List</h3>
+    <div class="box-tools pull-right">
+      <ul class="pagination pagination-sm inline">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box-body">
+    <ul class="todo-list" id="todoList">
+      <?php
+      // Fetch tasks from the database
+      $tasks_query = $mydb->setQuery("SELECT * FROM tbltodo ORDER BY id DESC");
+      $tasks = $mydb->loadResultList();
+      foreach ($tasks as $task) : ?>
+        <li data-id="<?php echo $task->id; ?>">
+          <span class="handle">
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-ellipsis-v"></i>
+          </span>
+          <input type="checkbox" class="toggle-completed" <?php echo $task->completed ? 'checked' : ''; ?>>
+          <span class="text"><?php echo htmlspecialchars($task->task_text); ?></span>
+          <small class="label label-<?php echo $task->priority; ?>">
+            <i class="fa fa-clock-o"></i> <?php echo $task->deadline; ?>
+          </small>
+          <div class="tools">
+            <i class="fa fa-edit edit-task"></i>
+            <i class="fa fa-trash-o delete-task"></i>
           </div>
-          <!-- /.box -->
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <div class="box-footer clearfix no-border">
+    <button type="button" class="btn btn-danger pull-right" id="deleteSelected"><i class="fa fa-trash"></i> Delete Selected</button>
+    <button type="button" class="btn btn-default" id="addItem"><i class="fa fa-plus"></i> Add Item</button>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    const todoList = $('#todoList');
+
+    // Add a new task
+    $('#addItem').on('click', function () {
+      const taskText = prompt('Enter a new task:');
+      if (taskText) {
+        $.post('todo_actions.php', { action: 'add', task_text: taskText }, function (response) {
+          location.reload(); // Reload to reflect changes
+        });
+      }
+    });
+
+    // Delete a single task
+    todoList.on('click', '.delete-task', function () {
+      const id = $(this).closest('li').data('id');
+      $.post('todo_actions.php', { action: 'delete', id: id }, function (response) {
+        location.reload(); // Reload to reflect changes
+      });
+    });
+
+    // Mark task as completed
+    todoList.on('change', '.toggle-completed', function () {
+      const id = $(this).closest('li').data('id');
+      const completed = $(this).is(':checked') ? 1 : 0;
+      $.post('todo_actions.php', { action: 'update', id: id, completed: completed }, function (response) {
+        location.reload(); // Reload to reflect changes
+      });
+    });
+
+    // Edit a task
+    todoList.on('click', '.edit-task', function () {
+      const id = $(this).closest('li').data('id');
+      const currentText = $(this).closest('li').find('.text').text();
+      const updatedText = prompt('Edit task:', currentText);
+      if (updatedText) {
+        $.post('todo_actions.php', { action: 'edit', id: id, task_text: updatedText }, function (response) {
+          location.reload(); // Reload to reflect changes
+        });
+      }
+    });
+
+    // Delete multiple selected tasks
+    $('#deleteSelected').on('click', function () {
+      const selectedTasks = [];
+      $('.todo-list input[type="checkbox"]:checked').each(function () {
+        selectedTasks.push($(this).closest('li').data('id'));
+      });
+      if (selectedTasks.length > 0) {
+        $.post('todo_actions.php', { action: 'deleteMultiple', ids: selectedTasks }, function (response) {
+          location.reload(); // Reload to reflect changes
+        });
+      } else {
+        alert('No tasks selected!');
+      }
+    });
+  });
+</script> <!-- END OF TO-DO LIST -->
 
           <!-- quick email widget -->
           <div class="box box-info">

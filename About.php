@@ -38,7 +38,7 @@
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team2.jpg" alt="">
+										<img class="img-responsive" src="aboutphotos/karlo.jpg" alt="">
 										<!-- Name -->
 										<h4>De Guzman, Karlo</h4>
 									</div>

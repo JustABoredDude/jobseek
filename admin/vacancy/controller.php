@@ -1,124 +1,126 @@
-
 <?php
-require_once ("../../include/initialize.php");
- 	 if (!isset($_SESSION['ADMIN_USERID'])){
-      redirect(web_root."admin/index.php");
-     }
+require_once("../../include/initialize.php");
 
+// Ensure the session is active and the user is logged in
+if (!isset($_SESSION['ADMIN_USERID'])) {
+    redirect(web_root . "admin/index.php");
+}
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 
 switch ($action) {
-	case 'add' :
-	doInsert();
-	break;
-	
-	case 'edit' :
-	doEdit();
-	break;
-	
-	case 'delete' :
-	doDelete();
-	break;
+    case 'add':
+        if (isAdmin()) {
+            doInsert();
+        } else {
+            unauthorizedRedirect();
+        }
+        break;
 
- 
-	}
-   
-	function doInsert(){
-		global $mydb;
-		if(isset($_POST['save'])){
- // `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`
- 
-		if ( $_POST['COMPANYID'] == "None") {
-			$messageStats = false;
-			message("All field is required!","error");
-			redirect('index.php?view=add');
-		}else{	
-			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
-			$mydb->setQuery($sql);
-			$cat = $mydb->loadSingleResult();
-			$_POST['CATEGORY']=$cat->CATEGORY;
-			$job = New Jobs();
-			$job->COMPANYID							= $_POST['COMPANYID']; 
-			$job->CATEGORY							= $_POST['CATEGORY']; 
-			$job->OCCUPATIONTITLE					= $_POST['OCCUPATIONTITLE'];
-			$job->REQ_NO_EMPLOYEES					= $_POST['REQ_NO_EMPLOYEES'];
-			$job->SALARIES							= $_POST['SALARIES'];
-			$job->DURATION_EMPLOYEMENT				= $_POST['DURATION_EMPLOYEMENT'];
-			$job->QUALIFICATION_WORKEXPERIENCE		= $_POST['QUALIFICATION_WORKEXPERIENCE'];
-			$job->JOBDESCRIPTION					= $_POST['JOBDESCRIPTION'];
-			$job->PREFEREDSEX						= $_POST['PREFEREDSEX'];
-			$job->SECTOR_VACANCY					= $_POST['SECTOR_VACANCY']; 
-			$job->DATEPOSTED						= date('Y-m-d H:i');
-			$job->create();
+    case 'edit':
+        if (isAdmin()) {
+            doEdit();
+        } else {
+            unauthorizedRedirect();
+        }
+        break;
 
-			message("New Job Vacancy created successfully!", "success");
-			redirect("index.php");
-			
-		}
-		}
+    case 'delete':
+        if (isAdmin()) {
+            doDelete();
+        } else {
+            unauthorizedRedirect();
+        }
+        break;
+}
 
-	}
+function isAdmin()
+{
+    return isset($_SESSION['ADMIN_ROLE']) && $_SESSION['ADMIN_ROLE'] == 'Administrator';
+}
 
-	function doEdit(){
-		global $mydb;
-		if(isset($_POST['save'])){
-			if ( $_POST['COMPANYID'] == "None") {
-				$messageStats = false;
-				message("All field is required!","error");
-				redirect('index.php?view=add');
-			}else{	
-				$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
-				$mydb->setQuery($sql);
-				$cat = $mydb->loadSingleResult();
-				$_POST['CATEGORY']=$cat->CATEGORY;
-				$job = New Jobs();
-				$job->COMPANYID							= $_POST['COMPANYID']; 
-				$job->CATEGORY							= $_POST['CATEGORY']; 
-				$job->OCCUPATIONTITLE					= $_POST['OCCUPATIONTITLE'];
-				$job->REQ_NO_EMPLOYEES					= $_POST['REQ_NO_EMPLOYEES'];
-				$job->SALARIES							= $_POST['SALARIES'];
-				$job->DURATION_EMPLOYEMENT				= $_POST['DURATION_EMPLOYEMENT'];
-				$job->QUALIFICATION_WORKEXPERIENCE		= $_POST['QUALIFICATION_WORKEXPERIENCE'];
-				$job->JOBDESCRIPTION					= $_POST['JOBDESCRIPTION'];
-				$job->PREFEREDSEX						= $_POST['PREFEREDSEX'];
-				$job->SECTOR_VACANCY					= $_POST['SECTOR_VACANCY']; 
-				$job->update($_POST['JOBID']);
+function unauthorizedRedirect()
+{
+    message("You do not have permission to perform this action.", "error");
+    redirect("index.php");
+}
 
-				message("Job Vacancy has been updated!", "success");
-				redirect("index.php");
-			}
-		}
+function doInsert()
+{
+    global $mydb;
+    if (isset($_POST['save'])) {
+        // Check for required fields
+        if ($_POST['COMPANYID'] == "None") {
+            message("All fields are required!", "error");
+            redirect('index.php?view=add');
+        } else {
+            // Insert new job vacancy
+            $job = new Jobs();
+            $job->COMPANYID = $_POST['COMPANYID'];
+            $job->CATEGORY = fetchCategoryName($_POST['CATEGORY']);
+            $job->OCCUPATIONTITLE = $_POST['OCCUPATIONTITLE'];
+            $job->REQ_NO_EMPLOYEES = $_POST['REQ_NO_EMPLOYEES'];
+            $job->SALARIES = $_POST['SALARIES'];
+            $job->DURATION_EMPLOYEMENT = $_POST['DURATION_EMPLOYEMENT'];
+            $job->QUALIFICATION_WORKEXPERIENCE = $_POST['QUALIFICATION_WORKEXPERIENCE'];
+            $job->JOBDESCRIPTION = $_POST['JOBDESCRIPTION'];
+            $job->PREFEREDSEX = $_POST['PREFEREDSEX'];
+            $job->SECTOR_VACANCY = $_POST['SECTOR_VACANCY'];
+            $job->DATEPOSTED = date('Y-m-d H:i');
+            $job->create();
 
-	}
+            message("New Job Vacancy created successfully!", "success");
+            redirect("index.php");
+        }
+    }
+}
 
+function doEdit()
+{
+    global $mydb;
+    if (isset($_POST['save'])) {
+        // Check for required fields
+        if ($_POST['COMPANYID'] == "None") {
+            message("All fields are required!", "error");
+            redirect('index.php?view=edit&id=' . $_POST['JOBID']);
+        } else {
+            // Update job vacancy
+            $job = new Jobs();
+            $job->COMPANYID = $_POST['COMPANYID'];
+            $job->CATEGORY = fetchCategoryName($_POST['CATEGORY']);
+            $job->OCCUPATIONTITLE = $_POST['OCCUPATIONTITLE'];
+            $job->REQ_NO_EMPLOYEES = $_POST['REQ_NO_EMPLOYEES'];
+            $job->SALARIES = $_POST['SALARIES'];
+            $job->DURATION_EMPLOYEMENT = $_POST['DURATION_EMPLOYEMENT'];
+            $job->QUALIFICATION_WORKEXPERIENCE = $_POST['QUALIFICATION_WORKEXPERIENCE'];
+            $job->JOBDESCRIPTION = $_POST['JOBDESCRIPTION'];
+            $job->PREFEREDSEX = $_POST['PREFEREDSEX'];
+            $job->SECTOR_VACANCY = $_POST['SECTOR_VACANCY'];
+            $job->update($_POST['JOBID']);
 
-	function doDelete(){
-		// if (isset($_POST['selector'])==''){
-		// message("Select a records first before you delete!","error");
-		// redirect('index.php');
-		// }else{
+            message("Job Vacancy has been updated!", "success");
+            redirect("index.php");
+        }
+    }
+}
 
-			$id = $_GET['id'];
+function doDelete()
+{
+    if (isset($_GET['id'])) {
+        // Delete the job vacancy
+        $job = new Jobs();
+        $job->delete($_GET['id']);
+        message("Job Vacancy has been deleted!", "info");
+        redirect("index.php");
+    }
+}
 
-			$job = New Jobs();
-			$job->delete($id);
-
-			message("Company has been Deleted!","info");
-			redirect('index.php');
-
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$category = New Category();
-		// 	$category->delete($id[$i]);
-
-		// 	message("Category already Deleted!","info");
-		// 	redirect('index.php');
-		// }
-		// }
-		
-	}
+function fetchCategoryName($categoryId)
+{
+    global $mydb;
+    $sql = "SELECT * FROM tblcategory WHERE CATEGORYID = {$categoryId}";
+    $mydb->setQuery($sql);
+    $category = $mydb->loadSingleResult();
+    return $category->CATEGORY;
+}
 ?>

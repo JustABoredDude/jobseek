@@ -62,8 +62,7 @@ class Employee {
 			$_SESSION['FNAME']				= $emp_found->FNAME; 
 			$_SESSION['LNAME']				= $emp_found->LNAME; 
 			$_SESSION['MNAME']				= $emp_found->MNAME; 
-			$_SESSION['ADDRESS']			= $emp_found->ADDRESS;  
-			$_SESSION['DEPARTMENTID']		= $emp_found->DEPARTMENTID;  
+			$_SESSION['ADDRESS']			= $emp_found->ADDRESS;
 		   return true;
 		 }else{
 		 	return false;

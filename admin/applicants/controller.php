@@ -88,8 +88,6 @@ switch ($action) {
 					$emp->TELNO				= $_POST['TELNO'];
 					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
-					// $emp->DEPARTMENTID		= $_POST['DEPARTMENTID'];
-					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS	= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
@@ -129,7 +127,7 @@ switch ($action) {
 
 			$age = date_diff(date_create($birthdate),date_create('today'))->y;
 		 	if ($age < 20 ){
-		       message("Invalid age. 20 years old and above is allowed.", "error");
+		       message("Invalid age. 18 years old and above is allowed.", "error");
 		       redirect("index.php?view=edit&id=".$_POST['EMPLOYEEID']);
 
 		    }else{
@@ -149,8 +147,6 @@ switch ($action) {
 					$emp->TELNO				= $_POST['TELNO'];
 					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
-					// $emp->DEPARTMENTID		= $_POST['DEPARTMENTID'];
-					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS		= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
@@ -172,37 +168,24 @@ switch ($action) {
 	}
 
 } 
-	function doDelete(){
-		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","error");
-		// redirect('index.php');
-		// }else{
 
-		// $id = $_POST['selector'];
-		// $key = count($id);
+function doDelete() {
+    if ($_SESSION['ADMIN_ROLE'] !== 'Administrator') {
+        // Display error message and redirect
+        $_SESSION['error_message'] = "You do not have permission to delete users!";
+        redirect("index.php");
+        exit();
+    }
 
-		// for($i=0;$i<$key;$i++){
+    $id = $_GET['id'];
 
-		// 	$subj = New Student();
-		// 	$subj->delete($id[$i]);
+    // Proceed to delete the applicant if the user is an Administrator
+    $emp = New Employee();
+    $emp->delete($id);
 
-		
-				$id = 	$_GET['id'];
-
-				$emp = New Employee();
-	 		 	$emp->delete($id);
-			 
-		
-		// }
-			message("Employee(s) already Deleted!","success");
-			redirect('index.php');
-		// }
-
-		
-	}
-
- 
+    $_SESSION['success_message'] = "Applicant(s) successfully deleted!";
+    redirect('index.php');
+}
  
   function UploadImage(){
 			$target_dir = "../../employee/photos/";

@@ -26,86 +26,79 @@ switch ($action) {
  
 	}
    
-	function doInsert(){
-		if(isset($_POST['save'])){
+	function doInsert() {
+		if (isset($_POST['save'])) {
+			// Ensure only Administrators can add new users
+			if ($_SESSION['ADMIN_ROLE'] !== 'Administrator') {
+				message("You do not have permission to add new users!", "error");
+				redirect("index.php");
+				exit();
+			}
+	
+			// Validate form input
+			if ($_POST['U_NAME'] == "" || $_POST['U_USERNAME'] == "" || $_POST['U_PASS'] == "") {
+				$messageStats = false;
+				message("All fields are required!", "error");
+				redirect('index.php?view=add');
+			} else {    
+				$user = New User();
+				$user->USERID = $_POST['user_id'];
+				$user->FULLNAME = $_POST['U_NAME'];
+				$user->USERNAME = $_POST['U_USERNAME'];
+				$user->PASS = $_POST['U_PASS'];
+				$user->ROLE = $_POST['U_ROLE'];
+				$user->create();
+	
+				$autonum = New Autonumber(); 
+				$autonum->auto_update('userid');
+	
+				message("The account [" . $_POST['U_NAME'] . "] was created successfully!", "success");
+				redirect("index.php");
+			}
+		}
+	}	
 
-
-		if ($_POST['U_NAME'] == "" OR $_POST['U_USERNAME'] == "" OR $_POST['U_PASS'] == "") {
-			$messageStats = false;
-			message("All field is required!","error");
-			redirect('index.php?view=add');
-		}else{	
+	function doEdit() {
+		if (isset($_POST['save'])) {
+			// Ensure only Administrators can edit
+			if ($_SESSION['ADMIN_ROLE'] !== 'Administrator') {
+				message("You do not have permission to edit user details!", "error");
+				redirect("index.php");
+				exit();
+			}
+	
 			$user = New User();
-			$user->USERID 			= $_POST['user_id'];
-			$user->FULLNAME 		= $_POST['U_NAME'];
-			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				= $_POST['U_PASS'];
-			$user->ROLE				= $_POST['U_ROLE'];
-			$user->create();
-
-						$autonum = New Autonumber(); 
-						$autonum->auto_update('userid');
-
-			message("The account [". $_POST['U_NAME'] ."] created successfully!", "success");
-			redirect("index.php");
-			
-		}
-		}
-
-	}
-
-	function doEdit(){
-	if(isset($_POST['save'])){
-
-
-			$user = New User(); 
-			$user->FULLNAME 		= $_POST['U_NAME'];
-			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				= $_POST['U_PASS'];
-			$user->ROLE				= $_POST['U_ROLE'];
+			$user->FULLNAME = $_POST['U_NAME'];
+			$user->USERNAME = $_POST['U_USERNAME'];
+			$user->PASS = $_POST['U_PASS'];
+			$user->ROLE = $_POST['U_ROLE'];
 			$user->update($_POST['USERID']);
-
-			
-
-
+	
 			if (isset($_GET['view'])) {
-				  message("Profile has been updated!", "success");
+				message("Profile has been updated!", "success");
 				redirect("index.php?view=view");
-			}else{ 
-				message("[". $_POST['U_NAME'] ."] has been updated!", "success");
+			} else {
+				message("[" . $_POST['U_NAME'] . "] has been updated!", "success");
 				redirect("index.php");
 			}
 		}
 	}
 
-
-	function doDelete(){
-		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","info");
-		// redirect('index.php');
-		// }else{
-
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$user = New User();
-		// 	$user->delete($id[$i]);
-
-		
-				$id = 	$_GET['id'];
-
-				$user = New User();
-	 		 	$user->delete($id);
-			 
-			message("User has been deleted!","info");
-			redirect('index.php');
-		// }
-		// }
-
-		
+	function doDelete() {
+		// Ensure only Administrators can delete
+		if ($_SESSION['ADMIN_ROLE'] !== 'Administrator') {
+			message("You do not have permission to delete users!", "error");
+			redirect("index.php");
+			exit();
+		}
+	
+		$id = $_GET['id'];
+	
+		$user = New User();
+		$user->delete($id);
+	
+		message("User has been deleted!", "info");
+		redirect('index.php');
 	}
 
 	function doupdateimage(){

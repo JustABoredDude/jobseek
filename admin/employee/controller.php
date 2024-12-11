@@ -88,8 +88,6 @@ switch ($action) {
 					$emp->TELNO				= $_POST['TELNO'];
 					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
-					// $emp->DEPARTMENTID		= $_POST['DEPARTMENTID'];
-					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS	= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];
@@ -157,8 +155,6 @@ switch ($action) {
 					$emp->TELNO				= $_POST['TELNO'];
 					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
-					// $emp->DEPARTMENTID		= $_POST['DEPARTMENTID'];
-					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
 					$emp->EMP_EMAILADDRESS		= $_POST['EMP_EMAILADDRESS'];
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= $_POST['EMPLOYEEID'];

@@ -1,3 +1,50 @@
+<?php
+require '../plugins/phpmailer/PHPMailer.php';
+require '../plugins/phpmailer/SMTP.php';
+require '../plugins/phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
+
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'jovincepro9@gmail.com'; // Your email address
+        $mail->Password = 'ghco xeqy svvz kfzb'; // Replace with your app password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        // Recipients
+        $mail->setFrom($email, $name); // User's email as sender
+        $mail->addAddress('jovincepro9@gmail.com'); // Your email as recipient
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = "<h4>Contact Form Message</h4>
+                       <p><strong>Email to:</strong>$email</p>
+                       <p><strong>Subject:</strong></p>
+                       <p><strong>Message:</strong></p>
+                       <p>$message</p>";
+
+        $mail->send();
+        $success = "Your message has been sent successfully!";
+    } catch (Exception $e) {
+        $error = "There was an error sending your message. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+?>
+
+
 <section class="content-header">
       <h1>
         Dashboard
@@ -162,7 +209,7 @@
     </ul>
   </div>
   <div class="box-footer clearfix no-border">
-    <button type="button" class="btn btn-danger pull-right" id="deleteSelected"><i class="fa fa-trash"></i> Delete Selected</button>
+    <button type="button" class="btn btn-danger pull-right" id="deleteSelected"><i class="fa fa-trash"></i></button>
     <button type="button" class="btn btn-default" id="addItem"><i class="fa fa-plus"></i> Add Item</button>
   </div>
 </div>
@@ -225,20 +272,15 @@
       }
     });
   });
-</script> <!-- END OF TO-DO LIST -->
+</script>
+<!-- END OF TO-DO LIST -->
 
           <!-- quick email widget -->
           <div class="box box-info">
             <div class="box-header">
               <i class="fa fa-envelope"></i>
 
-              <h3 class="box-title">Quick Email</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
+              <h3 class="box-title">Email</h3>
             </div>
             <div class="box-body">
               <form action="#" method="post">

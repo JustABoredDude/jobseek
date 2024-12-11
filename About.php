@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row showcase-section">
 				<div class="col-md-6">
-					<img src="img/dev1.png" alt="showcase image">
+					<img width="500px" height="500px" src="dist\img\about.jpg" alt="showcase image">
 				</div>
 				<div class="col-md-6">
 					<div class="about-text">

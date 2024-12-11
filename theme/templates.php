@@ -109,8 +109,6 @@
                           <ul class="dropdown-menu">
                               <li class="<?php  if(isset($_GET['q'])) { if($_GET['q']=='advancesearch'){ echo 'active'; }else{ echo ''; }}  ?>"><a href="<?php echo web_root; ?>index.php?q=advancesearch">Advance Search</a></li>
                               <li><a href="<?php echo web_root; ?>index.php?q=search-company">Job By Company</a></li>
-                              <li><a href="<?php echo web_root; ?>index.php?q=search-function">Job By Function</a></li>
-                              <li><a href="<?php echo web_root; ?>index.php?q=search-jobtitle">Job By Title</a></li>
                           </ul>
                        </li> 
                       <li class="dropdown <?php  if(isset($_GET['q'])) { if($_GET['q']=='category'){ echo 'active'; }else{ echo ''; }}  ?>">

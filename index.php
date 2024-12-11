@@ -59,10 +59,6 @@ switch ($view) {
 	case 'search-function' :
         $title='Search by Function';	
 		$content='searchbyfunction.php';		
-		break;	
-	case 'search-jobtitle' :
-        $title='Search by Job Title';	
-		$content='searchbytitle.php';		
 		break;						
 	default :
 	    $active_home='active';

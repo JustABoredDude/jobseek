@@ -41,7 +41,7 @@
             <li class="list-group-item text-muted">Profile</li><!-- 
             <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Real Name</strong></span> 
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> 
              <?php echo $applicant->FNAME .' '.substr($applicant->MNAME, 1,2).'. '.$applicant->LNAME; ?> 
              </li>
             

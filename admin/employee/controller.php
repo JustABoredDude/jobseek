@@ -194,37 +194,21 @@ switch ($action) {
 	}
 
 } 
-	function doDelete(){
-		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","error");
-		// redirect('index.php');
-		// }else{
 
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$subj = New Student();
-		// 	$subj->delete($id[$i]);
-
-		
-				$id = 	$_GET['id'];
-
-				$emp = New Employee();
-	 		 	$emp->delete($id);
-			 
-		
-		// }
-			message("Employee(s) already Deleted!","success");
-			redirect('index.php');
-		// }
-
-		
+function doDelete() {
+	if ($_SESSION['ROLE'] != 'Administrator') {
+	  message("You do not have permission to delete employees.", "error");
+	  redirect("index.php");
+	  return;
 	}
-
- 
+  
+	$id = $_GET['id'];
+	$emp = New Employee();
+	$emp->delete($id);
+  
+	message("Employee(s) already deleted!", "success");
+	redirect('index.php');
+  }
  
   function UploadImage(){
 			$target_dir = "../../employee/photos/";
